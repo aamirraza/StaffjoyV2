@@ -137,7 +137,7 @@ If things are really goofing, run `vagrant destroy -f` then rebuild.
 
 If you are loading assets like templates, CSS, JS, etc - you need to package the the data into the binary. Otherwise, the app will ship and it won't be able to find the assets!
 
-To do this, use the [go.rice](https://github.com/GeertJohan/go.rice) project. If you modify any of the asset files, you will need to rebuild them then commit the resulting `bindata.go` file and commit it. You have been warned!
+To do this, use the [go-bindata](https://github.com/jteeuwen/go-bindata) project. If you modify any of the asset files, you will need to rebuild them then commit the resulting `bindata.go` file and commit it. You have been warned!
 
 Most services provide a `build.sh` file that compiles all the data that needs to be committed.
 
