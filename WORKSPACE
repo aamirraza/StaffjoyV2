@@ -242,7 +242,7 @@ new_git_repository(
     name = "go_google_api",
     build_file = "//:third_party/go/google_api.BUILD",
     commit = "cad4a65739ec9027249a05eec449fe57ff999d48", # Jul 2, 2019 (LATEST GIT COMMIT)
-    remote = "https://github.com/google/google-api-go-client.git",
+    remote = "https://github.com/googleapis/google-api-go-client",
 )
 
 new_git_repository(

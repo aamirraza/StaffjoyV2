@@ -6,6 +6,7 @@ set -x
 # This script is called by `make dev-build`
 export VERSION="dev-$(date +%s)"
 export NAMESPACE="development"
+export PULLER_TIMEOUT=3600
 declare -a targets=("www" "faraday" "account/api" "account/server" "email/server" "myaccount" "whoami" "company/server" "company/api" "ical" "superpowers" "sms/server" "bot/server" "app")
 
 echo "Running database migration"
