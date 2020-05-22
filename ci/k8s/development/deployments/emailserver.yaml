@@ -33,9 +33,9 @@ spec:
         - name: DEPLOY
           value: VERSION
         - name: MAILGUN_DOMAIN
-          value: domain.com
+          value: sandbox2b7a4006f5924a22a387e93517f8c752.mailgun.org
         - name: MAILGUN_API_KEY
-          value: key-4g
+          value: 37a8d77da2038811ee8c9f4d6d077039-e5e67e3e-873eee73
         - name: ENV
           valueFrom:
             fieldRef:

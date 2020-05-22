@@ -2,11 +2,9 @@
 package main
 
 import (
-	"fmt"
 	"net"
 	"net/http"
 	"os"
-	"strings"
 	"sync"
 	"time"
 
@@ -65,7 +63,7 @@ func main() {
 		s.errorClient = environments.ErrorClient(&config)
 	}
 	s.client = mailgun.NewMailgun(os.Getenv("MAILGUN_DOMAIN"), os.Getenv("MAILGUN_API_KEY"))
-	s.client.SetAPIBase("https://api.eu.mailgun.net/v3")
+	s.client.SetAPIBase("https://api.mailgun.net/v3")
 
 	var err error
 
@@ -112,17 +110,6 @@ func (s *emailServer) processSend(req *pb.EmailRequest) {
 		"to":        req.To,
 		"html_body": req.HtmlBody,
 	})
-
-	// In development and staging - only send emails to @staffjoy.com
-	if s.config.Name != "production" {
-		// prepend env for sanity
-		req.Subject = fmt.Sprintf("[%s] %s", s.config.Name, req.Subject)
-
-		if !strings.HasSuffix(req.To, staffjoyEmailSuffix) {
-			logLine.Warningf("Intercepted sending due to non-production environment.")
-			return
-		}
-	}
 
 	//templateContent := map[string]string{"body": req.HtmlBody, "title": req.Subject}
 
